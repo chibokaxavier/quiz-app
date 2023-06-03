@@ -30,7 +30,7 @@ const page = () => {
 
   const nextQuestion = () => {
     setSelectedAnswerIndex(null);
-    setResult((prev) => 
+    setResult((prev) =>
       selectedAnswer
         ? {
             ...prev,
@@ -48,7 +48,6 @@ const page = () => {
     } else {
       setActiveQuestion(0);
       setShowResult(true);
-      
     }
     setChecked(false);
   };
@@ -98,9 +97,33 @@ const page = () => {
             )}
           </div>
         ) : (
-          <div
-            className="bg-[#f8f8f8] p-4 mt-8 rounded-[4px] text-black"
-          ></div>
+          <div className="bg-[#f8f8f8] p-4 mt-8 rounded-[4px] text-black flex flex-col space-y-2">
+            <h3
+              className="text-3xl font-bold
+            "
+            >
+              Results
+            </h3>
+            <h3 className="font-bold text-3xl">{(result.score / 25) * 100}%</h3>
+            <p>
+              Total Questions: <span> {questions.length}</span>
+            </p>
+            <p>
+              Total Score: <span> {result.score}</span>
+            </p>
+            <p>
+              Correct Answer: <span> {result.correctAnswers}</span>
+            </p>
+            <p>
+              Incorrect Answer: <span> {result.incorrectAnswers}</span>
+            </p>
+            <button
+              className="py-4 px-2 w-full mt-3 rounded-[4px] cursor-pointer bg-[#808080] text-[#f8f8f8]"
+              onClick={() => window.location.reload()}
+            >
+              Restart
+            </button>
+          </div>
         )}
       </div>
     </div>
