@@ -42,7 +42,6 @@ const page = () => {
             incorrectAnswers: prev.incorrectAnswers + 1,
           }
     );
-
     if (activeQuestion !== questions.length - 1) {
       setActiveQuestion(activeQuestion + 1);
     } else {
